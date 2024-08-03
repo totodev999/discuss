@@ -2,9 +2,8 @@
 
 import { useFormState } from 'react-dom';
 import * as actions from '@/actions';
-import { Input, Modal, ModalContent } from '@nextui-org/react';
-import { useCallback, useEffect, useId, useRef, useState } from 'react';
-import { randomInt } from 'crypto';
+import { Input } from '@nextui-org/react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 
 export default function HeaderInput() {
   const [state, action] = useFormState(actions.searchPost, { errors: {} });

@@ -1,6 +1,5 @@
 import CommentShow from '@/components/comments/comment-show';
-import { db } from '@/db';
-import { CommentWithAutor, fetchCommentsByPostId } from '@/db/queries/comment';
+import { CommentWithAutor } from '@/db/queries/comment';
 
 interface CommentListProps {
   fetchData: () => Promise<CommentWithAutor[]>;

@@ -11,11 +11,7 @@ import {
   Textarea,
 } from '@nextui-org/react';
 import FormButton from '../common/form-button';
-import { use, useActionState, useEffect, useState } from 'react';
-import { useRouter } from 'next/navigation';
-import { CreatePostFormState } from '@/actions/create-post';
-import { unknown } from 'zod';
-import { paths } from '@/path';
+import { useEffect, useState } from 'react';
 
 interface CreatePostFormProps {
   slug: string;

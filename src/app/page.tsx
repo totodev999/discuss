@@ -6,7 +6,6 @@ import PostList from '@/components/posts/post-list';
 import Bluetooth from './blueTooth';
 
 import { fetchTopPosts } from '@/db/queries/post';
-import { useEffect } from 'react';
 
 export default async function Home() {
   const posts = await (await fetch('http://localhost:3000/api/data')).json();
