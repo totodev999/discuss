@@ -1,36 +1,68 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+This repository is based on below course.(almost the same, added some codes.)  
+[Next JS: The Complete Developer's Guide](https://www.udemy.com/course/next-js-the-complete-developers-guide/?couponCode=MCLARENT71824)
 
 ## Getting Started
 
-First, run the development server:
+First, set up env.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+```
+touch .env.local
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+add below text to .env.local
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```
+GITHUB_CLIENT_ID="@replace"
+GITHUB_CLIENT_SECRET="@replace"
+AUTH_SECRET="@replace"
+# set to solve following problem: Host must be trusted. URL was: http://localhost:3000/api/auth/session. Read more at https://errors.authjs.dev#j
+AUTH_TRUST_HOST=TRUE
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+enter below commands
 
-## Learn More
+```
+npm install
+cd src
+npx prisma init --datasource-provider sqlite
+cd ..
+mv -f ./schema.prisma ./src/prisma
+cd src/prisma/
+npx prisma migrate dev
+npm run dev
+```
 
-To learn more about Next.js, take a look at the following resources:
+reference  
+use below commands, when you want to reset prisma.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```
+rm -rf ./node_modules/
+rm -rf ./src/prisma
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Points
 
-## Deploy on Vercel
+- using App Router
+- added some codes to ensure detailed logging at Server Actions.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## features
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Main Page:http://localhost:3000/
+
+- You can see Posts.
+- You can create new Topics.
+- You can move to Topics page.
+- You can move to Posts page.
+- You can search for articles by keywords.
+
+Topics page:http://localhost:3000/topics/[slug]
+
+- You can see Posts related to Topics.
+- You can create Posts, of course, Posts you create will be related to Topics.
+- You can move to Posts page.
+
+Posts page:http://localhost:3000/topics/[slug]/posts/[postId]
+
+- You can see the Post.
+- You can see comments related to the Post.
+- You can post comments to the Post and post comments to comments.
