@@ -3,7 +3,6 @@ import { auth } from '@/auth';
 import TopicCreateForm from '@/components/topics/topic-create-form';
 import TopicList from '@/components/topics/topic-list';
 import PostList from '@/components/posts/post-list';
-import Bluetooth from './blueTooth';
 
 import { fetchTopPosts } from '@/db/queries/post';
 
@@ -21,7 +20,6 @@ export default async function Home() {
         <h3 className="text-xl">Topics</h3>
         <TopicList />
       </div>
-      <Bluetooth />
     </div>
   );
 }
